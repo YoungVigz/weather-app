@@ -26,7 +26,7 @@ function App() {
   return (
     <div className="container">
       <header>
-        <h1>Weather App</h1>
+        Weather App
       </header>
 
       <main>
