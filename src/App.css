@@ -31,13 +31,18 @@ header {
 
 main {
     display: flex;
-    justify-content: center;
     align-items: center;
+    flex-direction: column;
     width: 75vw;
     min-height: 75vh;
     max-height: 75vh;
     background-color: var(--secound-background); 
     border-radius: 10px;
+}
+
+.search-title {
+    margin-top: 25px;
+    margin-bottom: 10px;
 }
 
 .search-location {
@@ -48,7 +53,7 @@ main {
 .search-box {
     display: flex;
     align-items: center;
-    width: 200px; 
+    width: 275px; 
     margin: 0 auto; 
     border-radius: 30px;
     overflow: hidden;
@@ -79,6 +84,12 @@ main {
     border: 2px red solid;
 }
 
+@media (max-width: 425px) {
+    .search-box {
+        width: 200px;
+    }
+}
+
 @media (min-width: 575px) {
     main {
         width: 50vw;
@@ -104,35 +115,17 @@ main {
     flex-direction: column;
     width: 100%;
     min-height: 100%;
+    margin-top: 50px;
 }
 
 .head-line {
     width: 100%;
-    display: flex;
-    align-items: center;
-}
-
-.back {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 25px;
-    margin-left: 15px;
-    font-size: 20px;
-    padding: 7.5px;
-    background-color: var(--accent);
-    flex-shrink: 0; 
 }
 
 .city-name {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-size: 20px;
     text-align: center;
-    flex: 1;
-
-    transform: translateX(-15px);
+    font-weight: bold;
 }
 
 .today {
@@ -151,9 +144,186 @@ main {
 }
 
 .icon {
-    font-size: 92px;
+    font-size: 76px;
 }
 
 .temp-div {
+    margin-top: -10px;
     font-size: 28px;
+}
+
+.temp-div svg {
+    margin-right: 5px;
+}
+
+.date-time {
+    margin-top: 5px;
+}
+
+.details {
+    display: flex;
+    margin-top: 15px;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.details div svg {
+    margin-right: 5px;
+}
+
+
+.next-day-wrapper {
+    display: flex;
+    min-width: 100%;
+    max-width: 100%;
+    margin-top: 35px;
+    overflow-x: scroll;
+}
+
+.next-day {
+    min-width: 30%;
+    padding: 15px;
+    margin-left: 25px;
+    background-color: var(--accent);
+    border-radius: 5px;
+}
+
+.icon-small {
+    font-size: 42px;   
+}
+
+.icon-small svg {
+    margin-right: 0px !important;
+}
+
+.main-small {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.date-time-small {
+    margin-top: -5px;
+    margin-bottom: 5px;
+}
+
+.next-day div svg {
+    margin-right: 5px;
+}
+
+@media (max-width: 480px) {
+    .icon-small {
+        font-size: 32px;
+    }
+
+    .next-day {
+        font-size: 12px;
+    }
+}
+
+
+@media (max-height: 650px) {
+    header {
+        font-size: 20px;
+    }
+
+    .search-title {
+        font-size: 15px;
+        margin-top: 10px;
+    }
+
+    .search-box {
+        height: 30px;
+    }
+
+    .search-box input {
+        font-size: 15px;
+    }
+
+    #weather {
+        margin-top: 7.5px;
+    }
+
+    .city-name {
+        font-size: 16px;
+    }
+
+    .today {
+        margin-top: 7.5px;
+    }
+
+    .icon {
+        font-size: 36px;
+    }
+
+    .temp-div {
+        font-size: 16px;
+        margin-top: -5px;
+    }
+
+    .date-time {
+        font-size: 12px;
+    }
+
+    .details {
+        font-size: 12px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .next-day {
+        display: none;
+    }
+}
+
+@media (min-height: 650px) and (max-height: 850px) {
+    header {
+        font-size: 24px;
+    }
+
+    .search-title {
+        font-size: 18px;
+        margin-top: 15px;
+    }
+
+    .search-box {
+        height: 35px;
+    }
+
+    .search-box input {
+        font-size: 16px;
+    }
+
+    #weather {
+        margin-top: 10px;
+    }
+
+    .city-name {
+        font-size: 18px;
+    }
+
+    .today {
+        margin-top: 10px;
+    }
+
+    .icon {
+        font-size: 48px;
+    }
+
+    .temp-div {
+        font-size: 24px;
+        margin-top: -5px;
+    }
+
+    .date-time {
+        font-size: 16px;
+    }
+
+    .details {
+        font-size: 16px;
+        margin-top: 7.5px;
+        margin-bottom: 7.5px;
+    }
 }

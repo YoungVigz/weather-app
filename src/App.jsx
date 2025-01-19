@@ -20,7 +20,10 @@ function App() {
     setLongitude(lon)
     setCityName(city)
 
-    toggleSearch()
+    if(isSearchVisible) {
+      toggleSearch()
+    } 
+    
   }
 
   return (
@@ -30,11 +33,11 @@ function App() {
       </header>
 
       <main>
-        {isSearchVisible ? (
-          <Search locationSelected={locationSelected} />
-        ) : (
+        <Search locationSelected={locationSelected} />
+
+        {!isSearchVisible ? (
           <Weather lat={latitude} lon={longitude} city={cityName} getBack={toggleSearch}></Weather>  
-        )}
+        ): ''}
       </main>
     </div>
   )

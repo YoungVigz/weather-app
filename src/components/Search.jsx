@@ -2,7 +2,6 @@ import { useState, useRef } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
-
 const Search = ({ locationSelected }) => {
     const locationInput = useRef(null)
     const [location, setLocation] = useState("")
@@ -38,7 +37,7 @@ const Search = ({ locationSelected }) => {
     return (
         <div className="search-location">
             
-            <p>Enter the location:</p> 
+            <div className="search-title">Enter the location:</div> 
             
             <div className="search-box" ref={locationInput}>
                 <input type="text" id="location" placeholder="Warsaw" onChange={searchValueChanged} />

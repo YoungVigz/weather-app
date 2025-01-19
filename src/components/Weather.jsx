@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react"
 import Today from "./Today"
 import NextDay from "./NextDay"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 const Weather = ({ lat, lon, city, getBack }) => {
   const [currentWeather, setCurrentWeather] = useState(null)
@@ -45,18 +43,28 @@ const Weather = ({ lat, lon, city, getBack }) => {
   return (
     <div id="weather">
       <div className="head-line">
-        <div className="back" onClick={getBack}>
-          <FontAwesomeIcon icon={faArrowLeft} />
-        </div>
         <div className="city-name">
           {city}
         </div>
       </div>
       
-
       <Today data={currentWeather} />
 
-   
+      <div className="next-day-wrapper">
+        {
+          nextWeathers.time.map((day, key) => (
+            <NextDay
+              key={key}
+              date={day}
+              maxTemp={nextWeathers.temperature_2m_max[key]}
+              minTemp={nextWeathers.temperature_2m_min[key]}
+              windSpeed={nextWeathers.windspeed_10m_max[key]}
+              windDirection={nextWeathers.winddirection_10m_dominant[key]}
+              weatherCode={nextWeathers.weathercode[key]}
+            ></NextDay>
+          ))
+        }
+      </div>
 
     </div>
   )
@@ -66,19 +74,7 @@ export default Weather
 
 
 /*
-   {
-        nextWeathers.time.map((day, key) => (
-          <NextDay
-            key={key}
-            date={day}
-            maxTemp={nextWeathers.temperature_2m_max[key]}
-            minTemp={nextWeathers.temperature_2m_min[key]}
-            windSpeed={nextWeathers.windspeed_10m_max[key]}
-            windDirection={nextWeathers.winddirection_10m_dominant[key]}
-            weatherCode={nextWeathers.weathercode[key]}
-          ></NextDay>
-        ))
-      }
+  
 
 
 */
